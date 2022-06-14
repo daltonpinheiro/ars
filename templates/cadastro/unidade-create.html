@@ -1,0 +1,25 @@
+{% extends '_partials/base.html' %}
+
+{% block title %}
+
+Cadastrar Unidade
+
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+    
+    <h3>Unidade</h3>
+    
+    {% include '_partials/messages.html' %}
+
+    <form class="ui form" method="POST" action={% url 'cadastrar-unidade' %}>
+        {% csrf_token %}
+
+        {{form.as_p}}
+
+        <input type="submit" class="ui button primary" value="Cadastrar">
+    </form>
+
+{% endblock content %}

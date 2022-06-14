@@ -1,0 +1,62 @@
+{%load static %}
+
+<div class="ui menu borderless">
+  <div class="ui container">
+    <a href={% url 'home' %} class="header item">IgeStaO
+        <!--LOGO
+        <img class="logo" class="logo" src= {% static 'img/Logo.png' %} />
+        -->
+    </a>
+
+    {% if request.user.is_authenticated %}
+
+    <div class="ui simple dropdown item">Menu<i class="dropdown icon"></i>
+      <div class="menu">
+        <a href="" class="item">To do</a>
+      </div>
+    </div>
+        
+    <div class="ui simple dropdown item">RH<i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item"><i class="dropdown icon"></i>Funcionário
+            <div class="menu">
+              <div class="item">Cadastro</div>
+              <div class="item">Registro</div>
+            </div>
+          </div>
+          <div class="item">Função</div>
+          <div class="item">Competência</div>
+        </div>
+    </div>
+    {% endif %}
+
+  </div>
+
+  
+    <div class="right item">
+      {% if request.user.is_authenticated %}
+
+      <div class="ui simple dropdown item">
+         Olá, {{request.user.first_name}} <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Perfil</div>
+          <form class="ui large form" method="post" action={% url 'logout_user' %}>
+            {% csrf_token %}
+            <input class="ui button" type="submit" value="Sair"/>
+          </form>
+        </div>
+      </div>
+
+      {% else %}
+      <div class="ui item">
+      <a href={% url 'login' %}><i class="large sign in alternate icon"></i></a>
+      </div>
+      
+      <div class="ui item">
+      <a href={% url 'register' %} class="ui primary button">Registro</a>
+      </div>
+
+      {% endif %}
+    </div>
+  </div>
+</div>

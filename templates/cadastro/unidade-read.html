@@ -1,0 +1,70 @@
+{% extends '_partials/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+    <h1 class="ui header">Unidades</h1>
+
+    {% include '_partials/messages.html' %}
+
+  {% if unidades %}
+
+  <table class="ui table">
+
+    <thead>
+
+        <tr>
+            <th>Sigla</th>
+            <th>Nome</th>
+            <th>Criado por</th>
+            <th>Criado em</th>
+            <th>Editado por</th>
+            <th>Editado em</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        {% for unidade in unidades %}
+
+        <tr>
+
+            <td>{{unidade.sigla}}</td>
+            <td>{{unidade.nome}}</td>
+            <td>{{unidade.created_by.complete_name}}</td>
+            <td>{{unidade.created_at}}</td>
+            <td>{{unidade.editado_por}}</td>
+            <td>{{unidade.editado_em}}</td>
+
+            <td>
+              <a href={% url 'editar-unidade' unidade.pk  %} class="ui button">
+                  <i class="pencil icon"></i>
+              </a>
+            </td>
+        </tr>
+
+        
+        {% endfor %}
+
+    </tbody>
+
+  </table>
+
+
+  {% else %}
+
+  <div class="ui message">
+    <div class="header">
+        Sem unidades
+    </div>
+    <p>Crie uma unidade <a href={% url 'cadastrar-unidade' %}>Nova</a></p>
+  </div>
+
+  {% endif %}
+
+    
+    {% endblock content %}
