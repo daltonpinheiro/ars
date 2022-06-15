@@ -92,7 +92,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'igestao04',
         'USER': 'igestao04',
-        'PASSWORD':'roberta81',
+        'PASSWORD':'senha',
         'HOST':'mysql.igestao.net.br',
         'PORT':'3306',
     }
@@ -137,7 +137,7 @@ USE_TZ = True
 EMAIL_FROM_USER = 'igestao@igestao.net.br'
 EMAIL_HOST = 'smtp.igestao.net.br'
 EMAIL_HOST_USER = 'igestao@igestao.net.br'
-EMAIL_HOST_PASSWORD = 'Robert@81'
+EMAIL_HOST_PASSWORD = 'senha'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 
