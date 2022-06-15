@@ -13,7 +13,6 @@ def unidade_read(request):
     return render(request, "cadastro/unidade-read.html", {"unidades": Unidade.objects.all()})
 
 
-
 #@login_required
 def cadastrar_unidade(request):
     
@@ -34,7 +33,7 @@ def cadastrar_unidade(request):
     
         messages.add_message(request, messages.SUCCESS, "Unidade salva com sucesso.")
 
-        return redirect(reverse("unidades"))
+        return redirect(reverse("unidade-read"))
 
     return render(request, 'cadastro/unidade-create.html', context)
 
