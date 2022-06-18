@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from validate_email import validate_email
+#from validate_email import validate_email
 from .models import CustomUser
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -53,7 +53,10 @@ def send_activation_email(user, request):
         EmailThread(email).start()
 """
 
-
+def validate_email(email):
+    import re
+    regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$' 
+    return True if (re.search(regex,email)) else False
 
 ### REGISTER
 #@auth_user_should_not_access

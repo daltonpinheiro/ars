@@ -50,7 +50,8 @@ def editar_unidade(request, id):
         
         sigla = request.POST.get('sigla')
         nome = request.POST.get('nome')
-
+        erros=False
+        """
         if Unidade.objects.filter(nome=nome).exists():
             messages.add_message(request, messages.ERROR, "Este nome já existe.")
             erros = True
@@ -58,6 +59,7 @@ def editar_unidade(request, id):
         if Unidade.objects.filter(sigla=sigla).exists():
             messages.add_message(request, messages.ERROR, "Esta sigla já existe.")
             erros = True
+        """
 
         if not erros:
             unidade.sigla = sigla
@@ -71,8 +73,8 @@ def editar_unidade(request, id):
 
             messages.add_message(request, messages.SUCCESS, "Unidade atualizada com sucesso.")
 
-            return redirect(reverse("unidades"))
+            return redirect(reverse("unidade-read"))
 
-        return render(request, 'unidade-update.html', context)
+        return render(request, 'cadastro/unidade-update.html', context)
 
-    return render(request, 'unidade-update.html', context)
+    return render(request, 'cadastro/unidade-update.html', context)
