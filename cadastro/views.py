@@ -39,6 +39,7 @@ def editar_unidade(request, id):
              unidade = form.save(commit=False)
              unidade.sigla = request.POST.get('sigla')
              unidade.nome = request.POST.get('nome')
+             unidade.edited_by = request.user
              unidade.save()
              return redirect('unidade-read')
      else:
