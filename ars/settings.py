@@ -26,7 +26,7 @@ SECRET_KEY = '(qs#v5+zn(h=g9i=wd)$3%@gi+^_5u_lz@e+##1p&nkpzwi9jy'
 DEBUG = True
 
 #ALLOWED_HOSTS = ['www.igestao.net.br' , 'igestao.net.br']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 AUTH_USER_MODEL = "authentication.CustomUser"
 #LOGIN_URL = "/auth/login"
@@ -122,7 +122,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+#LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
 TIME_ZONE = 'UTC'
 
