@@ -8,7 +8,7 @@ class Unidade(models.Model):
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='+', verbose_name='Cadastro')
     created_at= models.DateTimeField(auto_now_add=True, verbose_name='Data cadastro')
     edited_by= models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='+', verbose_name='Revisão')
-    edited_at= models.DateTimeField(null=True, verbose_name='Data revisão')
+    edited_at= models.DateTimeField(auto_now=True, verbose_name='Data revisão',blank=True,null=True)
 
     def editado_por(self):
         is_datas_diferentes = self.created_at != self.edited_at

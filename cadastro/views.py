@@ -28,7 +28,6 @@ def cadastrar_unidade(request):
             return(redirect("unidade-read"))        
     else:
         form=UnidadeForm()
-
     return render(request, 'cadastro/unidade-create.html', {'form': form})
 
 def editar_unidade(request, id):
